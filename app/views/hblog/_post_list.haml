@@ -1,0 +1,9 @@
+%h1 Blog posts
+%ul.post-list
+  %li{"ng-repeat" => "post in posts"}
+    .post-title {{post.title}}
+    .post-content
+      %pre {{post.content}}
+
+%button{"ng-click" => "nextPage()"}
+  Next

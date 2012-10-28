@@ -6,7 +6,13 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'guard'
-gem 'haml'
+group :guard do
+  gem 'guard-sass'
+  gem 'guard-haml'
+  gem 'guard-coffeescript'
+end
+
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required

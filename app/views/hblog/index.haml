@@ -1,0 +1,13 @@
+<!doctype html>
+%html{"ng-app" => "post"}
+  %head
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"}
+    %script{:src => "/js/posts.js"}
+    %script{:src => "/js/post.js"}
+    %link{:href => "/css/base.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+
+  %body{:theme => "default"}
+    #body-container
+      #main
+        %div{"ng-view" => ""}
