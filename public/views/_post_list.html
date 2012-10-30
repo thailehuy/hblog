@@ -7,6 +7,20 @@
     </div>
   </li>
 </ul>
-<button ng-click='nextPage()'>
-  Next
-</button>
+<div class='pagination'>
+  <div class='page'>
+    <a href='#/page/{{currentPage - 1 }}' ng-hide='currentPage == 1'>
+      Previous
+    </a>
+  </div>
+  <div class='page' ng-repeat='page in [] | range:1:postInfo.post_count'>
+    <a class='{{pageClass(page)}}' href='#/page/{{page}}'>
+      {{page}}
+    </a>
+  </div>
+  <div class='page'>
+    <a href='#/page/{{currentPage +  1}}' ng-hide='currentPage == postInfo.post_count'>
+      Next
+    </a>
+  </div>
+</div>

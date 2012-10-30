@@ -13,3 +13,10 @@ angular.module('postloader', ['ngResource']).
 
       return Post
     });
+
+angular.module('postinfo', ['ngResource']).
+  factory('PostInfo', function($resource) {
+    var PostInfo = $resource('https://hpost.herokuapp.com/posts/info.json', {}, {});
+    return PostInfo;
+  });
+

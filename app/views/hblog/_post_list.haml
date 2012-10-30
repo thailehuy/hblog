@@ -5,5 +5,13 @@
     .post-content
       %pre {{post.content}}
 
-%button{"ng-click" => "nextPage()"}
-  Next
+.pagination
+  .page
+    %a{:href => "#/page/{{currentPage - 1 }}", "ng-hide" => "currentPage == 1"}
+      Previous
+  .page{"ng-repeat" => "page in [] | range:1:postInfo.post_count"}
+    %a{:href => "#/page/{{page}}", :class => "{{pageClass(page)}}"}
+      {{page}}
+  .page
+    %a{:href => "#/page/{{currentPage +  1}}", "ng-hide" => "currentPage == postInfo.post_count"}
+      Next
