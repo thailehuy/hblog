@@ -3,18 +3,60 @@
   <head>
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js'></script>
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js'></script>
+    <script src='/js/bootstrap.min.js'></script>
     <script src='/js/spinner.js'></script>
     <script src='/js/posts.js'></script>
     <script src='/js/post.js'></script>
-    <link href='/css/base.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/bootstrap.min.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/bootstrap-responsive.min.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/docs.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/google-prettify.css' media='all' rel='stylesheet' type='text/css' />
   </head>
-  <body theme='default'>
+  <body data-spy='scroll' data-target='.bs-docs-sidebar' data-twttr-rendered='data-twttr-rendered'>
     <div id='body-container'>
-      <div id='main'>
-        <div id='spinner' ng-show='ajaxLoading'>
-          Loading ...
+      <div class='navbar navbar-inverse navbar-fixed-top'>
+        <div class='navbar-inner'>
+          <div class='container'>
+            <div id='spinner' ng-show='ajaxLoading'>
+              Loading
+            </div>
+          </div>
         </div>
-        <div ng-view=''></div>
+      </div>
+      <header class='jumbotron subhead' id='overview'>
+        <div class='container'>
+          <h1>Huy Thai's blog</h1>
+          <p class='lead'>
+            Currently an experimental blog about AngularJS
+          </p>
+        </div>
+      </header>
+      <div class='container' id='main'>
+        <div class='row'>
+          <div class='span3 bs-docs-sidebar'>
+            <ul class='nav nav-list bs-docs-sidenav affix-top'>
+              <li class='active'>
+                <a href='#/'>
+                  <i class='icon-chevron-right'></i>
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href='#/about'>
+                  <i class='icon-chevron-right'></i>
+                  About
+                </a>
+              </li>
+              <li>
+                <a href='#/code'>
+                  <i class='icon-chevron-right'></i>
+                  Code
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class='span9' ng-view=''></div>
+        </div>
       </div>
     </div>
   </body>

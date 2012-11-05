@@ -3,14 +3,41 @@
   %head
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"}
+    %script{:src => "/js/bootstrap.min.js"}
     %script{:src => "/js/spinner.js"}
     %script{:src => "/js/posts.js"}
     %script{:src => "/js/post.js"}
-    %link{:href => "/css/base.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/bootstrap-responsive.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/docs.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/google-prettify.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
 
-  %body{:theme => "default"}
+  %body{"data-spy" => "scroll", "data-target" => ".bs-docs-sidebar", "data-twttr-rendered" => true}
     #body-container
-      #main
-        #spinner{"ng-show" => "ajaxLoading"}
-          Loading ...
-        %div{"ng-view" => ""}
+      .navbar.navbar-inverse.navbar-fixed-top
+        .navbar-inner
+          .container
+            #spinner{"ng-show" => "ajaxLoading"}
+              Loading
+      %header#overview.jumbotron.subhead
+        .container
+          %h1 Huy Thai's blog
+          %p.lead
+            Currently an experimental blog about AngularJS
+      #main.container
+        .row
+          .span3.bs-docs-sidebar
+            %ul.nav.nav-list.bs-docs-sidenav.affix-top
+              %li.active
+                %a{:href => '#/'}
+                  %i.icon-chevron-right
+                  Blog
+              %li
+                %a{:href => '#/about'}
+                  %i.icon-chevron-right
+                  About
+              %li
+                %a{:href => '#/code'}
+                  %i.icon-chevron-right
+                  Code
+          .span9{"ng-view" => ""}
