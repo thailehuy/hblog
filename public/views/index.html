@@ -3,15 +3,18 @@
   <head>
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js'></script>
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js'></script>
-    <script src='/js/jquery-1.8.2.min.js'></script>
-    <script src='/js/bootstrap.min.js'></script>
+    <script src='/js/lib/jquery-1.8.2.min.js'></script>
+    <script src='/js/lib/bootstrap.min.js'></script>
     <script src='/js/spinner.js'></script>
     <script src='/js/posts.js'></script>
+    <script src='/js/routes.js'></script>
+    <script src='/js/nav.js'></script>
+    <script src='/js/about.js'></script>
     <script src='/js/post.js'></script>
-    <link href='/css/bootstrap.min.css' media='all' rel='stylesheet' type='text/css' />
-    <link href='/css/bootstrap-responsive.min.css' media='all' rel='stylesheet' type='text/css' />
-    <link href='/css/docs.css' media='all' rel='stylesheet' type='text/css' />
-    <link href='/css/google-prettify.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/lib/bootstrap.min.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/lib/bootstrap-responsive.min.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/lib/docs.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/css/lib/google-prettify.css' media='all' rel='stylesheet' type='text/css' />
   </head>
   <body data-spy='scroll' data-target='.bs-docs-sidebar' data-twttr-rendered='data-twttr-rendered'>
     <div id='body-container'>
@@ -34,24 +37,12 @@
       </header>
       <div class='container' id='main'>
         <div class='row'>
-          <div class='span3 bs-docs-sidebar'>
+          <div class='span3 bs-docs-sidebar' ng-controller='NavCtrl'>
             <ul class='nav nav-list bs-docs-sidenav affix-top'>
-              <li class='active'>
-                <a href='#/'>
+              <li class='{{navClass(menu.controller)}}' ng-repeat='menu in navMenu'>
+                <a href='{{menu.href}}' target='{{menu.target}}'>
                   <i class='icon-chevron-right'></i>
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href='#/about'>
-                  <i class='icon-chevron-right'></i>
-                  About
-                </a>
-              </li>
-              <li>
-                <a href='#/code'>
-                  <i class='icon-chevron-right'></i>
-                  Code
+                  {{menu.text}}
                 </a>
               </li>
             </ul>

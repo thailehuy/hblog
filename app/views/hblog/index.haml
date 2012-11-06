@@ -3,15 +3,19 @@
   %head
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"}
-    %script{:src => "/js/jquery-1.8.2.min.js"}
-    %script{:src => "/js/bootstrap.min.js"}
+    %script{:src => "/js/lib/jquery-1.8.2.min.js"}
+    %script{:src => "/js/lib/bootstrap.min.js"}
     %script{:src => "/js/spinner.js"}
     %script{:src => "/js/posts.js"}
+    %script{:src => "/js/routes.js"}
+    %script{:src => "/js/nav.js"}
+    %script{:src => "/js/about.js"}
     %script{:src => "/js/post.js"}
-    %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/bootstrap-responsive.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/docs.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
-    %link{:href => "/css/google-prettify.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+
+    %link{:href => "/css/lib/bootstrap.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/lib/bootstrap-responsive.min.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/lib/docs.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
+    %link{:href => "/css/lib/google-prettify.css", :rel => "stylesheet", :type => "text/css", :media => "all"}
 
   %body{"data-spy" => "scroll", "data-target" => ".bs-docs-sidebar", "data-twttr-rendered" => true}
     #body-container
@@ -27,18 +31,10 @@
             Currently an experimental blog about AngularJS
       #main.container
         .row
-          .span3.bs-docs-sidebar
+          .span3.bs-docs-sidebar{"ng-controller" => "NavCtrl"}
             %ul.nav.nav-list.bs-docs-sidenav.affix-top
-              %li.active
-                %a{:href => '#/'}
+              %li{"ng-repeat" => "menu in navMenu", :class => "{{navClass(menu.controller)}}"}
+                %a{:href => "{{menu.href}}", :target => "{{menu.target}}"}
                   %i.icon-chevron-right
-                  Blog
-              %li
-                %a{:href => '#/about'}
-                  %i.icon-chevron-right
-                  About
-              %li
-                %a{:href => 'https://github.com/thailehuy/hblog', :target => "_blank"}
-                  %i.icon-chevron-right
-                  Code
+                  {{menu.text}}
           .span9{"ng-view" => ""}
