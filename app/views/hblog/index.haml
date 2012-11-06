@@ -3,6 +3,7 @@
   %head
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"}
+    %script{:src => "/js/jquery-1.8.2.min.js"}
     %script{:src => "/js/bootstrap.min.js"}
     %script{:src => "/js/spinner.js"}
     %script{:src => "/js/posts.js"}
@@ -37,7 +38,7 @@
                   %i.icon-chevron-right
                   About
               %li
-                %a{:href => '#/code'}
+                %a{:href => 'https://github.com/thailehuy/hblog', :target => "_blank"}
                   %i.icon-chevron-right
                   Code
           .span9{"ng-view" => ""}
