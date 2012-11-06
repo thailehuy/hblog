@@ -6,14 +6,14 @@
     </div>
   </li>
 </ul>
-<div class='pagination'>
+<div class='pagination' ng-controller='PostPaginationCtrl'>
   <ul>
     <li class='{{firstPageClass()}}'>
       <a href='#/page/{{currentPage - 1 }}'>
         Previous
       </a>
     </li>
-    <li class='{{pageClass(page)}}' ng-repeat='page in [] | range:1:postInfo.post_count'>
+    <li class='{{pageClass(page)}}' ng-repeat='page in getPageRanges(postInfo.max_page)'>
       <a href='#/page/{{page}}'>
         {{page}}
       </a>

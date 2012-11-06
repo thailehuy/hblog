@@ -4,12 +4,12 @@
     .post-content
       %pre {{post.content}}
 
-.pagination
+.pagination{"ng-controller" => "PostPaginationCtrl"}
   %ul
     %li{:class => "{{firstPageClass()}}"}
       %a{:href => "#/page/{{currentPage - 1 }}"}
         Previous
-    %li{"ng-repeat" => "page in [] | range:1:postInfo.post_count", :class => "{{pageClass(page)}}"}
+    %li{"ng-repeat" => "page in getPageRanges(postInfo.max_page)", :class => "{{pageClass(page)}}"}
       %a{:href => "#/page/{{page}}"}
         {{page}}
     %li{:class => "{{lastPageClass()}}"}
